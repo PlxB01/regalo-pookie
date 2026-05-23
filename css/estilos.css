@@ -1,0 +1,652 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+:root {
+    --color-fondo: #ff4d6d;      /* Fondo oscuro místico */
+    --color-tarjeta: #161224;    /* Fondo de modales/tarjetas */
+    --color-primario: #ff4d6d;   /* Rosa fuerte amor */
+    --color-secundario: #ff758f; /* Rosa suave */
+    --color-detalles: #ffe164;   /* Amarillo estrellas */
+    --color-texto: #f8f9fa;      /* Blanco suave */
+    --fuente-romantica: 'Fredoka', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-romantica);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    /* Imagen de fondo corregida apuntando a tu carpeta imagenes */
+    background-image: linear-gradient(rgba(11, 9, 20, 0.85), rgba(11, 9, 20, 0.85)), url('../imagenes/fondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ==========================================================================
+   2. CONTENEDOR PRINCIPAL Y ENCABEZADO
+   ========================================================================== */
+.contenedor-principal {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(22, 18, 36, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 77, 109, 0.2);
+    border: 2px solid rgba(255, 117, 143, 0.3);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.encabezado-romantico h1 {
+    font-size: 2.5rem;
+    color: var(--color-primario);
+    text-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 1.1rem;
+    color: #b0a8cf;
+    margin-bottom: 35px;
+}
+
+/* ==========================================================================
+   3. MENÚ DE BOTONES INTERACTIVOS
+   ========================================================================== */
+.menu-opciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.boton-opcion {
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+    border: 2px solid var(--color-primario);
+    padding: 15px 20px;
+    font-family: var(--fuente-romantica);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 0px var(--color-primario);
+}
+
+.boton-opcion:hover {
+    transform: translateY(-3px);
+    background-color: var(--color-primario);
+    box-shadow: 0 8px 15px rgba(255, 77, 109, 0.4);
+}
+
+.boton-opcion:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0px var(--color-primario);
+}
+
+/* ==========================================================================
+   4. SECCIÓN BIENVENIDA (TEXTO INFERIOR)
+   ========================================================================== */
+.contenido-bienvenida {
+    background: rgba(11, 9, 20, 0.6);
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 4px solid var(--color-secundario);
+    text-align: left;
+}
+
+.contenido-bienvenida h2 {
+    color: var(--color-secundario);
+    margin-bottom: 12px;
+}
+
+.nota-inicial {
+    font-size: 0.95rem;
+    color: var(--color-detalles);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.carta-breve {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e2dfeb;
+}
+
+.decoracion-corazon {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 15px;
+    animation: pulse 1.5s infinite;
+}
+
+/* ==========================================================================
+   5. MODALES (VENTANAS EMERGENTES)
+   ========================================================================== */
+.modal-romantico {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 9, 20, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-romantico.mostrar {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contenido-modal {
+    background-color: var(--color-tarjeta);
+    width: 90%;
+    max-width: 550px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 25px;
+    padding: 35px 25px;
+    position: relative;
+    border: 2px solid var(--color-secundario);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    transform: scale(0.85);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+}
+
+.modal-romantico.mostrar .contenido-modal {
+    transform: scale(1);
+}
+
+.contenido-modal.grande {
+    max-width: 850px;
+    width: 95%;
+}
+
+.btn-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-cerrar:hover {
+    color: var(--color-primario);
+}
+
+.contenido-modal h2 {
+    color: var(--color-primario);
+    margin-bottom: 10px;
+}
+
+.sub-modal {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   6. SECCIÓN 1: MURO DE RECUERDOS (GRID Y FOTOS)
+   ========================================================================== */
+.filtros-muro {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    background: none;
+    border: 1.5px solid var(--color-secundario);
+    color: var(--color-texto);
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-family: var(--fuente-romantica);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-filtro.activo, .btn-filtro:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-tarjeta);
+    font-weight: bold;
+}
+
+.muro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.tarjeta-recuerdo {
+    background-color: #1f1a33;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 117, 143, 0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.tarjeta-recuerdo:hover {
+    transform: translateY(-5px);
+}
+
+.wrapper-foto {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: #110e1c;
+}
+
+.wrapper-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.tarjeta-recuerdo:hover .wrapper-foto img {
+    transform: scale(1.08);
+}
+
+.info-recuerdo {
+    padding: 15px;
+}
+
+.fecha-recuerdo {
+    font-size: 0.8rem;
+    color: var(--color-detalles);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-recuerdo h3 {
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    margin-bottom: 8px;
+}
+
+.info-recuerdo p {
+    font-size: 0.9rem;
+    color: #b0a8cf;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   7. SECCIÓN 2: TRIVIA / COFRE SECRETO
+   ========================================================================== */
+.pantalla-cofre {
+    padding: 10px 0;
+}
+
+.icono-bloqueo {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.btn-accion-romantica {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    font-family: var(--fuente-romantica);
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-accion-romantica:active {
+    transform: scale(0.98);
+}
+
+.progreso-trivia {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.barra-trivia {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.1);
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+#barra-trivia-llenado {
+    width: 0%;
+    height: 100%;
+    background-color: var(--color-secundario);
+    transition: width 0.3s ease;
+}
+
+.pregunta-pregunta {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: var(--color-texto);
+}
+
+.opciones-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.btn-opcion-trivia {
+    background-color: #1f1a33;
+    border: 2px solid #362f52;
+    color: var(--color-texto);
+    padding: 12px 15px;
+    border-radius: 15px;
+    font-family: var(--fuente-romantica);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.btn-opcion-trivia:hover {
+    border-color: var(--color-secundario);
+    background-color: rgba(255, 117, 143, 0.1);
+}
+
+/* Cupones Premio */
+.contenedor-cupones {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tarjeta-cupon {
+    background-image: linear-gradient(135deg, #ff758f 0%, #ff4d6d 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px dashed #ffffff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    text-align: left;
+    width: 100%;
+    max-width: 380px;
+}
+
+.cupon-header h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   8. SECCIÓN 3: CARTITA DE AMOR
+   ========================================================================== */
+.sobre-carta {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.cuerpo-carta {
+    background-color: #fff;
+    color: #2b2b2b;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: left;
+    font-family: 'Fredoka', sans-serif;
+    line-height: 1.6;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    max-height: 350px;
+    overflow-y: auto;
+    border-left: 5px solid var(--color-primario);
+}
+
+.cuerpo-carta p {
+    margin-bottom: 15px;
+}
+
+.firma-carta {
+    text-align: right;
+    margin-top: 20px;
+    color: var(--color-primario);
+}
+
+/* ==========================================================================
+   9. SECCIÓN 4 & 5: UNIVERSO Y DISTANCIA MAPA
+   ========================================================================== */
+.instruccion-canvas {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.marcador-km {
+    margin: 15px 0;
+}
+
+#numero-km {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-detalles);
+    text-shadow: 0 0 15px rgba(255, 225, 100, 0.4);
+}
+
+.unidad-km {
+    font-size: 1.2rem;
+    color: var(--color-texto);
+    margin-left: 5px;
+}
+
+.mapa-lineal {
+    position: relative;
+    width: 85%;
+    height: 60px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linea-trayecto {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--color-primario), var(--color-detalles), var(--color-secundario));
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.nodo-mapa {
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-tarjeta);
+    border: 2px solid var(--color-texto);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 5;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    transition: transform 0.2s;
+}
+
+.nodo-mapa:hover {
+    transform: scale(1.15);
+}
+
+.corazon-viajero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.frase-distancia {
+    font-size: 0.95rem;
+    color: #b0a8cf;
+    line-height: 1.5;
+    max-width: 450px;
+    margin: 15px auto 0 auto;
+}
+
+/* ==========================================================================
+   10. SECCIÓN 6: JUEGO ¿ME AMAS? (BOTONES LOGICA)
+   ========================================================================== */
+.pregunta-juego {
+    font-size: 1.4rem;
+    padding: 0 10px;
+    line-height: 1.4;
+}
+
+.btn-juego {
+    position: absolute;
+    padding: 12px 25px;
+    font-family: var(--fuente-romantica);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.btn-juego.si {
+    background-color: #2ec4b6;
+    color: white;
+    left: 20%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 0 4px 0px #1f857d;
+}
+
+.btn-juego.no {
+    background-color: var(--color-primario);
+    color: white;
+    right: 20%;
+    top: 35%;
+    transform: translate(50%, -50%);
+    box-shadow: 0 4px 0px #c93b55;
+}
+
+/* ==========================================================================
+   11. REPRODUCTOR MUSICA FLOTANTE Y EXTRAS
+   ========================================================================== */
+.btn-musica-flotante {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-tarjeta);
+    border: 2px solid var(--color-secundario);
+    color: var(--color-texto);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.2s;
+}
+
+.btn-musica-flotante.reproduciendo {
+    animation: rotate 4s linear infinite;
+    background-color: var(--color-primario);
+    border-color: white;
+}
+
+.contenedor-audio-reproductor {
+    margin-top: 15px;
+    background-color: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/* ==========================================================================
+   12. ANIMACIONES
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Adaptación para pantallas de Celulares */
+@media (max-width: 600px) {
+    .contenedor-principal {
+        padding: 25px 15px;
+    }
+    .encabezado-romantico h1 {
+        font-size: 1.8rem;
+    }
+    .menu-opciones {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .boton-opcion {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+    }
+}

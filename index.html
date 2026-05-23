@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Lunita HEMOSAAA 💖</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <button id="btn-musica" class="btn-musica-flotante">🎵</button>
+
+    <audio id="musica-fondo" src="imagenes/musica.mp3" loop></audio>
+    <audio id="sfx-confeti" src="imagenes/confeti.mp3"></audio>
+    <audio id="sfx-burbuja" src="imagenes/burbujasfx.mp3"></audio>
+
+    <div class="contenedor-principal">
+        <header class="encabezado-romantico">
+            <h1>^o^ ¡Bienvenida, Moony! ^o^ ❤️</h1>
+            <p class="subtitulo">Te amo pookie, jamás lo olvide, here bby, elige una opción.</p>
+        </header>
+
+        <nav class="menu-opciones">
+            <button class="boton-opcion" data-opcion="1">Recuerditos :D</button>
+            <button class="boton-opcion" data-opcion="2">¿Cofre Solcito?</button>
+            <button class="boton-opcion" data-opcion="3">Cartita ! !</button>
+            <button class="boton-opcion" data-opcion="4">¿Tu Universo? </button>
+            <button class="boton-opcion" data-opcion="5">Nuestra Distancia </button>
+            <button class="boton-opcion" data-opcion="6">¿Me amas? :"3</button>
+            <button class="boton-opcion" data-opcion="7">Listen here, Pookie</button>
+        </nav>
+
+        <main class="contenido-bienvenida">
+            <h2>Para mi lunita. . . ❤️</h2>
+            <p class="nota-inicial">Este es el final pookie, lea esto luego de explorar los ¿7? botones interactivos ! !</p>
+            <p class="carta-breve">
+                Pues aquí llegó el final pookie, estamos ambos leyendo o escucharte leer esto cierto? cuentame mi amor, que te pareció, como estuvo el regalo? en realidad sé que es poco pero, es la idea que se me ocurrió para esta ocación, no sé si haya sido despues o antes de tu regalo pero seguro que ha estado increible o estará, eh? gracias mi amor por estos 3 meses y gracias por todos esos días que te diste esforzandote por hacer el regalo para mí, te amo, cuentame que tal, mi lunita. . .
+            </p>
+            <div class="decoracion-corazon">❤️</div>
+        </main>
+    </div>
+
+    <div id="modal-muro" class="modal-romantico">
+        <div class="contenido-modal grande">
+            <button id="cerrar-muro" class="btn-cerrar">&times;</button>
+            <h2>Nuestro Murito de Recuerdos. . .</h2>
+            <p class="sub-modal">Cada momento contigo guardado en mi corazón, and in my soul, mi lunita peciosa.</p>
+            
+            <div class="filtros-muro">
+                <button class="btn-filtro activo" data-filtro="todos">Todo 🌸</button>
+                <button class="btn-filtro" data-filtro="viaje">El viaje ✈️</button>
+                <button class="btn-filtro" data-filtro="juegos">Juegitos 🎮</button>
+                <button class="btn-filtro" data-filtro="detalles">Detalles 🎁</button>
+            </div>
+
+            <div class="muro-grid">
+                <div class="tarjeta-recuerdo" data-categoria="viaje">
+                    <div class="wrapper-foto">
+                        <img src="imagenes/viajeprimerafoto.jpg" alt="Nuestro primer viaje">
+                    </div>
+                    <div class="info-recuerdo">
+                        <span class="fecha-recuerdo">20 de Febrero.</span>
+                        <h3>Nuestra primera foto juntos.</h3>
+                        <p>Esta es nuestra primera fotito juntos bby, no sabes lo feliz que estaba en ese momento, en como no lo asimilaba y en cuantas ganas tenía de sentir tu piel y cuerpo junto a mí, no tiene que ver con la foto, pero jamás olvidaré ese besito en la boca que te dí apenas llegué, te amo cielo.</p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-recuerdo" data-categoria="juegos">
+                    <div class="wrapper-foto">
+                        <img src="imagenes/juegototo1.jpg" alt="Jugando juntos">
+                    </div>
+                    <div class="info-recuerdo">
+                        <span class="fecha-recuerdo">15 de Enero.</span>
+                        <h3>Jugar contigo.</h3>
+                        <p>Me encanta jugar contigo amor, me encanta esta foto pq me gusta make match contigo y poder regalarte la classic q te gustó esteticamente me encantó al ver como te hizo ilusión, no se compara al fokin paquetote que me regalaste de armas, pero es como un recuerdo eterno y en cada partida del valito jeje. . .</p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-recuerdo" data-categoria="detalles">
+                    <div class="wrapper-foto">
+                        <img src="imagenes/detalletoto1.jpg" alt="Detalles especiales">
+                    </div>
+                    <div class="info-recuerdo">
+                        <span class="fecha-recuerdo">26 de Abril.</span>
+                        <h3>Gracias por mimarme.</h3>
+                        <p>Te quiero dar las gracias por esos regalos que me has dado, por ejemplo los deliverys, gracias por mimarme y darme cositas de comer y cositas in los juegos, que sepas que lo aprecio mucho y siempre lo recuerdo, quiero que estas cositas in el mural de recuerdos lo demuestren, muchas gracias mi amor. . !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cofre" class="modal-romantico">
+        <div class="contenido-modal">
+            <button id="cerrar-cofre" class="btn-cerrar">&times;</button>
+            
+            <div id="pantalla-candado" class="pantalla-cofre">
+                <div class="icono-bloqueo">🔒</div>
+                <h2>El Cofre de las preguntas de solcito. . .</h2>
+                <p>He aquí una trivia de solcito, resuelve 10 preguntas sobre solcito and llega a la meta, donde te esperan 3 posibles regalos, pero solo uno estará disponible, buena suerte. . .</p>
+                <button id="btn-comenzar-trivia" class="btn-accion-romantica">✨ Comenzar Desafío ✨</button>
+            </div>
+
+            <div id="pantalla-trivia" class="pantalla-cofre" style="display: none;">
+                <div class="progreso-trivia">
+                    <span>Pregunta <strong id="numero-pregunta">1</strong> de 10</span>
+                    <div class="barra-trivia"><div id="barra-trivia-llenado"></div></div>
+                </div>
+                <h3 id="texto-pregunta" class="pregunta-pregunta">¿Pregunta de prueba?</h3>
+                <div id="contenedor-opciones" class="opciones-grid"></div>
+            </div>
+
+            <div id="pantalla-premios" class="pantalla-cofre" style="display: none;">
+                <div class="icono-bloqueo">🔓 ✨</div>
+                <h2>¡¡ Cofre Desbloqueado con Éxito !!</h2>
+                <p>EXCELENTE, demostraste lograr responder 10 preguntas sobre solcito (o simplemente hiciste 'Trial And Error'). Aquí está tu recompensa y las opciones que pudiste conseguir, pero **ATENCIÓN**, existen reglas: Respeto básico, se admite intimidad en los regalos, VALIDO SOLAMENTE LA PRIMERA VEZ QUE SE DESBLOQUEA EL COFRE (UNA VEZ HABIERTO DELANTE DE SOLCITO, EL CANJE OBTENIDO POR RNG SERÁ EL UNICO VALIDO UNA VEZ CONSEGUIDO).</p>
+                
+                <div class="contenedor-cupones">
+                    <div class="tarjeta-cupon" id="cupon-dorado">
+                        <div class="cupon-header">
+                            <h3>🎟️ PASE DORADO</h3>
+                            <span class="estado-cupon"></span>
+                        </div>
+                        <h4>📜 Sí a lo que desees</h4>
+                        <p>Tienes el poder de pedirme un deseo y mi respuesta tiene que ser un SÍ rotundo.</p>
+                        <span style="font-size: 0.8rem; display: block; margin-top: 10px; opacity: 0.8;">Regla: Respeto básico, se acepta Intimidad, mimos o locuras juntos.</span>
+                    </div>
+
+                    <div class="tarjeta-cupon" id="cupon-regalo">
+                        <div class="cupon-header">
+                            <h3>🎟️ PASE DE REGALO</h3>
+                            <span class="estado-cupon"></span>
+                        </div>
+                        <h4>🎁 Canje de Regalo Libre</h4>
+                        <p>Válido por lo que quieras que te compre o regale (ej. delivery sorpresa, un juego, fotos/poses específicas, etc).</p>
+                        <span style="font-size: 0.8rem; display: block; margin-top: 10px; opacity: 0.8;">Regla: Puede no ser inmediato, respeto básico y es 100% real.</span>
+                    </div>
+
+                    <div class="tarjeta-cupon" id="cupon-mix">
+                        <div class="cupon-header">
+                            <h3>🎟️ PASE MIX</h3>
+                            <span class="estado-cupon"></span>
+                        </div>
+                        <h4>💫 El Mix Perfecto</h4>
+                        <p>¿No te decides? ¡Te permito fusionar o elegir estratégicamente entre ambos beneficios anteriores!</p>
+                        <span style="font-size: 0.8rem; display: block; margin-top: 10px; opacity: 0.8;">Regla: Emplean las mismas condiciones previas con el doble de amor.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-carta" class="modal-romantico">
+        <div class="contenido-modal">
+            <button id="cerrar-carta" class="btn-cerrar">&times;</button>
+            <div class="sobre-carta">💌</div>
+            <h2>Cartita para mi bebé. . .</h2>
+            <div class="cuerpo-carta">
+                <p>Mi pretty pookie &gt;.&lt;</p>
+                <p>Feliz 3 meses pookie, espero te esté encantando el regalito y como no, darte una cartita para expresar lo mucho que te amo, as always.</p>
+                <p>Gracias por ser mi amor, por tus sonrisas, por tu apoyo y por ser exactamente como eres. Jamás olvides que te amo con todo mi corazón, hoy, mañana y siempre. ❤</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-constelacion" class="modal-romantico">
+        <div class="contenido-modal canvas-contenedor">
+            <button id="cerrar-constelacion" class="btn-cerrar">&times;</button>
+            <h2>El universo para tí &gt;.&lt;, mi Lunita</h2>
+            <p class="instruccion-canvas">Pasa el mouse o desliza tu dedo para conectar las estrellas. . .</p>
+            
+            <div class="canvas-wrapper" style="position: relative; width: 100%; height: 400px; background: #0b0914; border-radius: 15px; margin-top: 15px; overflow: hidden;">
+                <canvas id="canvas-estrellas" style="position: absolute; top:0; left:0; width:100%; height:100%;"></canvas>
+                <div id="mensaje-secreto-estrellas" style="position: absolute; top:0; left:0; width:100%; height:100%; display:none; flex-direction:column; justify-content:center; align-items:center; background: rgba(11,9,20,0.9); color: #ffe164; text-align: center; padding: 20px; box-sizing: border-box; pointer-events: none;">
+                    <h3 style="font-family:'Fredoka', sans-serif; font-size: 1.8rem; margin-bottom: 10px; text-shadow: 0 0 10px rgba(255,225,100,0.6);">✨ ¡YAYYY BIEN POOKIE! ¡Encontraste el mensajito oculto! ✨</h3>
+                    <p style="font-size: 1rem; color: #fff; line-height: 1.4;">He aquí otra cartita para tí pookie ¿te va gustando el regalito, mi amor? Bby, recuerda que siempre estoy orgulloso de tí y de tus avances o progresos, me parece excelente como vas avanzando en tus problemas personales o in la misma vida, felicidades por lograr encontrar trabajo y por elegir algo para estudiar el proximo año, te amo cielo, si te sientes estresada o triste, ven a mí, te escucharé, consolaré ¡y te intentará sacar esa hermosa sonrisa que traes! :,3 🌙💛</p>
+                    <span style="margin-top: 15px; display: block; font-weight: bold; color: #ffe164;">Con todo mi amor, Solcito ☀ estoy orgulloso de tí.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-distancia" class="modal-romantico">
+        <div class="contenido-modal">
+            <button id="cerrar-distancia" class="btn-cerrar">&times;</button>
+            <h2>Da igual la distancia. . .</h2>
+            <p style="text-align: center; opacity: 0.9; font-size: 0.95rem;">Cada día que pasa, a pesar de estar lejos de tí, te amaré sin dudarlo. . .</p>
+            
+            <div class="marcador-km">
+                <span id="numero-km" data-km-real="1441">1441</span>
+                <span class="unidad-km">KM</span>
+            </div>
+
+            <div class="mapa-lineal">
+                <div class="linea-trayecto"></div>
+                <div id="nodo-benja" class="nodo-mapa" title="Solcito">☀️</div>
+                <div id="corazon-viajero" class="corazon-viajero">❤️</div>
+                <div id="nodo-moony" class="nodo-mapa" title="Lunita">🌙</div>
+            </div>
+
+            <p id="frase-distancia" class="frase-distancia">
+                Si es verdad que nos separa mucha distancia, pero eso no impedira que mi amor por tí se manifieste de algún modo, aquí a pesar de los kilometros te puedo enviar amor jeje.
+            </p>
+        </div>
+    </div>
+
+    <div id="modal-juego" class="modal-romantico">
+        <div class="contenido-modal contenedor-juego-padre" style="overflow: hidden;">
+            <button id="cerrar-juego" class="btn-cerrar">&times;</button>
+            <h2 id="titulo-juego" class="pregunta-juego">Amor ¿Me amas muxito muxito y para siempre?</h2>
+            
+            <div class="contenedor-juego" style="position: relative; width: 100%; min-height: 280px; margin-top: 20px;">
+                <button id="btn-si" class="btn-juego si">Chi :3</button>
+                <button id="btn-no" class="btn-juego no">No.</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-adicional" class="modal-romantico">
+        <div class="contenido-modal">
+            <button id="cerrar-adicional" class="btn-cerrar">&times;</button>
+            <h2>Hemos llegado al final, Mi Niña. . .</h2>
+            <p style="margin-bottom: 20px;">Aveces, escuchar es mejor que leer, y aquí quiero mostrarte eso, mi pookie preciosa.</p>
+            
+            <div class="contenedor-audio-reproductor">
+                <audio controls src="imagenes/audiofinal.mp3" style="width: 100%; border-radius: 10px; outline: none;"></audio>
+            </div>
+            
+            <p style="margin-top: 25px; font-style: italic; text-align: center; font-size: 0.95rem; line-height: 1.4; color: #fff; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                "Una grabación para el final del regalito, gracias por estos 3 meses mi amor, sé que ambos sentimos en algún momento que ha sido dificl, ansiedad o miedo, pero esto no se acabara mi amor, te amo con toda mi alma y los problemas se solucionan, i love you pookie, bye bye. . ."
+            </p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
